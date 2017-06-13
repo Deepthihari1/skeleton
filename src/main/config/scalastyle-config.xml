@@ -2,6 +2,12 @@
  <name>Scalastyle standard configuration</name>
  <check level="warning" class="org.scalastyle.file.FileTabChecker" enabled="true"></check>
  <check level="warning" class="org.scalastyle.file.FileLengthChecker" enabled="true">
+   <target name="findbugs" depends="jar">
+    <findbugs home="findbugs library path" output="xml" outputFile="findbugs.xml" >
+      <sourcePath path="${src.dir}" />
+      <class location="${build.dir}/classes" />
+    </findbugs>
+  </target>
   <parameters>
    <parameter name="maxFileLength"><![CDATA[800]]></parameter>
   </parameters>
